@@ -1,0 +1,28 @@
+<div class="photos container">
+  <div class="photos__list" *ngIf="photos$ | async as photos">
+    <div
+      *ngFor="let photo of photos; let i = index"
+      (click)="addFavorites(photo)"
+      [id]="'item-' + i"
+      class="photos__list__item"
+    >
+      <img [src]="photo.download_url" [alt]="photo.author" />
+      <div class="overlay" [class.isFavorite]="photo.isFavorite">
+        <img
+          *ngIf="!photo.isFavorite"
+          src="../../../assets/icons/heart-add.png"
+          [alt]="'add-to-' + i"
+        />
+        <img
+          *ngIf="photo.isFavorite"
+          src="../../../assets/icons/heart-remove.png"
+          [alt]="'remove-from-' + i"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="photos__loading" *ngIf="isLoading">
+    <mat-spinner diameter="40"></mat-spinner>
+  </div>
+</div>

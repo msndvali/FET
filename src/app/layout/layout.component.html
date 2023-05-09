@@ -1,0 +1,28 @@
+<mat-toolbar class="toolbar">
+  <span>FET</span>
+  <div class="toolbar__buttons">
+    <button
+      mat-raised-button
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <mat-icon>insert_photo</mat-icon>
+      <span>Photos</span>
+    </button>
+    <button
+      mat-raised-button
+      [matBadge]="favoritesLength$ | async"
+      routerLink="favorites"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <mat-icon>favorite</mat-icon>
+      <span>Favorites</span>
+    </button>
+  </div>
+</mat-toolbar>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,32 @@
+@import "variables";
+@import "mixins";
+
+.favorites {
+  &__list {
+    @include grid(3);
+
+    &__item {
+      cursor: pointer;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .favorites {
+    &__list {
+      @include grid(2);
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .favorites {
+    &__list {
+      @include grid(1);
+    }
+  }
+}

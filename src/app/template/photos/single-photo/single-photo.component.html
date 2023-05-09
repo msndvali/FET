@@ -1,0 +1,17 @@
+<div class="singlephoto container" *ngIf="singlePhoto$ | async as photo">
+  <div class="singlephoto__main">
+    <img [src]="photo.download_url" [alt]="photo.author" />
+  </div>
+  <div class="singlephoto__info">
+    <div class="author">Author: {{ photo.author }}</div>
+    <div class="action">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="removeFavorites(photo.id)"
+      >
+        Remove from favorites
+      </button>
+    </div>
+  </div>
+</div>

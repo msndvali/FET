@@ -1,0 +1,12 @@
+<div class="favorites container">
+  <div class="favorites__list" *ngIf="favorites$ | async as favorites">
+    <div
+      *ngFor="let photo of favorites; let i = index"
+      (click)="navigateToSinglePhoto(photo.id)"
+      [id]="'item-' + i"
+      class="favorites__list__item"
+    >
+      <img [src]="photo.download_url" [alt]="photo.author" />
+    </div>
+  </div>
+</div>
